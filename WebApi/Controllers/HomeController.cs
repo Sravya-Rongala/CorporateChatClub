@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DTO.Chats;
 using WebApi.Application.DTO.Clubs;
 using WebApi.Application.DTO.Users;
@@ -98,3 +98,4 @@ namespace WebApi.Controllers.HomeController
 
     }
 }
+*/

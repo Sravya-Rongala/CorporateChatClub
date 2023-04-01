@@ -2,18 +2,17 @@
 using WebApi.Domain.ViewModels.Clubs;
 using WebApi.Domain.ViewModels.Users;
 
-namespace WebApi.Interfaces
+namespace WebApi.Infrastructure.Interfaces
 {
-    public interface IAdminService
+    public interface IAdminRepository
     {
        /* public IEnumerable<InActiveClub> GetInActiveClubs();
-        public IEnumerable<AvailableClubs> GetAvailableClubs();
         public IEnumerable<UserProfile> GetAllUsers();
+        public IEnumerable<AvailableClubs> GetAvailableClubs();
         public void UpdateClubActivationStatus(Action action);
         public void DeleteClub(Action action);
         public UserStatus UpdateUserActivationStatus(Action action);
         public void DeleteUser(Action action);*/
-        public Guid AddNewUser(UserDTO newUser );
-
+        public Guid AddNewUser(User newUser);
     }
 }

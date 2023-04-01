@@ -1,4 +1,4 @@
-﻿namespace WebApi.Application.DTO.Users
+﻿namespace WebApi.Domain.ViewModels.Users
 {
     public class UserStatus
     {

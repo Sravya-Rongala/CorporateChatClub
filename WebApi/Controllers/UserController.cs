@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DTO.Users;
 
 namespace WebApi.Controllers
@@ -46,3 +46,4 @@ namespace WebApi.Controllers
 
     }
 }
+*/

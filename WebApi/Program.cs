@@ -1,6 +1,12 @@
+using AutoMapper;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using WebApi.Domain.Data;
+using WebApi.Infrastructure.Interfaces;
+using WebApi.Infrastructure.Repositories.Dapper;
+using WebApi.Interfaces;
+using WebApi.Service.MapperProfile;
+using WebApi.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,9 +28,17 @@ builder.Services.AddSimpleInjector(container, options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.AddProfile<MapperProfile>();
+});
+
 
 //DAPPER 
 container.Register<DbContext>();
+container.Register<IAdminRepository, AdminRepository>();
+container.Register<IAdminService, AdminService>();
+
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Users.ViewModels
 {
-    public class UserProfile
+    public class UserProfileDTO
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }

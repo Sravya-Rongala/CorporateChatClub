@@ -1,70 +1,69 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.DTO.Clubs.ViewModels;
 using WebApi.Application.DTO.Users;
+using WebApi.Application.DTO.Clubs.ViewModels;
 using WebApi.Application.DTO.Users.ViewModels;
-using WebApi.Domain.ViewModels.Clubs;
-using WebApi.Domain.ViewModels.Users;
+using WebApi.Interfaces;
 
-namespace WebApi1.Controllers
+namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
     {
-        public AdminController() 
-        { 
 
+        private readonly IAdminService _adminservices;
+        public AdminController(IAdminService AdminServices)
+        {
+            _adminservices = AdminServices;
         }
 
-        [HttpGet("inactiveclubs")]
-        public IEnumerable<InActiveClub[]> GetInActiveClubs()
+       /* [HttpGet("inactiveclubs")]
+        public IEnumerable<InActiveClub> GetInActiveClubs()
         {
-            IEnumerable<InActiveClub[]> a = new List<InActiveClub[]>();
-            return a;
+            return _adminservices.GetInActiveClubs();
         }
 
         [HttpGet("available")]
-        public IEnumerable<AvailableClubs> GetAvailableClubs()
+        public IEnumerable<AvailableClubsDTO> GetAvailableClubs()
         {
-            IEnumerable<AvailableClubs> a = new List<AvailableClubs>();
-            return a;
+            return _adminservices.GetAvailableClubs();
         }
 
         [HttpGet("userdetails/{userid}")]
-        public UserProfile GetUserDetails(Guid UserId)
+        public IEnumerable<UserProfileDTO> GetAllUsers(Guid UserId)
         {
-            return new UserProfile();
+            return _adminservices.GetAllUsers(UserId);
         }
-
+*/
         [HttpPost("adduser")]
-        public User AddUser(User addUser)
+        public Guid AddUser(UserDTO addUser)
         {
-            return new User();
+           return   _adminservices.AddNewUser(addUser);
         }
 
-        [HttpPut("club/activationstatus")]
+     /*   [HttpPut("club/activationstatus")]
         public void UpdateClubActivationStatus(Action action)
         {
-
+            _adminservices.UpdateClubActivationStatus(action);
         }
 
         [HttpPut("user/activationstatus")]
-        public UserStatus  UpdateUserActivationStatus(Action action)
+        public UserStatus UpdateUserActivationStatus(Action action)
         {
-            return new UserStatus();
+            return _adminservices.UpdateClubActivationStatus(action);
         }
 
         [HttpDelete("club")]
         public void DeleteClub(Action action)
         {
-
+            _adminservices.DeleteClub(action);
         }
 
         [HttpDelete("user")]
         public void DeleteUser(Action action)
         {
-
-        }
+            _adminservices.DeleteUser(action);
+        }*/
        
     }
 }

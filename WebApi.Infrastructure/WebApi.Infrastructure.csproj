@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <Folder Include="Repositories\EF\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebApi.Application\WebApi.Application.csproj" />
     <ProjectReference Include="..\WebApi.Domain\WebApi.Domain.csproj" />
-    <ProjectReference Include="..\WebApi.Infrastructure\WebApi.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

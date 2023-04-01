@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Domain.Entities.User
 {
-    [Table("User")]
+    [Table("Users")]
 
     public class User
     {
@@ -19,8 +19,6 @@ namespace WebApi.Domain.Entities.User
         public string? Email { get; set; }
 
         public string? Phone { get; set; }
-
-        public Guid AddressId { get; set; }
 
         public string? DisplayName { get; set; }
 
