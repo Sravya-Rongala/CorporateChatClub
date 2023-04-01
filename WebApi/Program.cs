@@ -1,16 +1,30 @@
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
-
-
+using WebApi.Domain.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+//Simple Injector
+
+var container = new Container();
+container.Options.DefaultLifestyle = Lifestyle.Scoped;
+container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+
+builder.Services.AddSimpleInjector(container, options =>
+{
+    options.AddAspNetCore().AddControllerActivation();
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+//DAPPER 
+container.Register<DbContext>();
 
 var app = builder.Build();
 
