@@ -21,7 +21,5 @@
         public bool isClubMember { get; set; }
 
         public bool isRequested { get; set; }
-
-
     }
 }
