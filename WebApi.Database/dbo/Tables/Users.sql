@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Users]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+    [FirstName] VARCHAR(MAX) NOT NULL, 
+    [MiddleName] VARCHAR(MAX) NULL, 
+    [LastName] VARCHAR(MAX) NOT NULL, 
+    [Email] VARCHAR(50) NOT NULL, 
+    [Phone] VARCHAR(10) NOT NULL, 
+    [AddressId] UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES Address(Id), 
+    [DisplayName] VARCHAR(MAX) NOT NULL, 
+    [JobTitle] VARCHAR(MAX) NOT NULL,
+    [Gender] INT NULL, 
+    [DateOfBirth] DATETIME NULL, 
+    [MaritalStatus] INT NULL, 
+    [BloodGroup] INT NULL, 
+    [About] VARCHAR(MAX) NULL, 
+    [Summary] TEXT NULL, 
+    [ProfilePicture] NVARCHAR(MAX) NULL, 
+    [RoleId] UNIQUEIDENTIFIER NULL FOREIGN KEY REFERENCES UserRole(Id), 
+    [AddedBy] UNIQUEIDENTIFIER NOT NULL, 
+    [AddenOn] DATETIME NOT NULL DEFAULT (getdate()),
+    [UserAccess] INT NOT NULL,
+    [CreatedBy] varchar(max) NULL,
+    [CreatedOn] DateTime Null,
+    [ModifiedBy] varchar(max) NUll,
+    [ModifiedOn] DateTime null, 
+    
+)
