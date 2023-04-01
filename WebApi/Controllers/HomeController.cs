@@ -46,6 +46,12 @@ namespace WebApi.Controllers.HomeController
             return a;
         }
 
+        [HttpPut("clubrequeststatus")]
+        public void UpdateUserClubRequestStatus(ClubRequestStatus clubRequestStatus) 
+        {
+
+        }
+
         [HttpPut("favouriteChat/{userid}/{chatid}")]
         public void MakeFavouriteChat(Guid UserId,Guid ChatId)
         {
@@ -71,20 +77,21 @@ namespace WebApi.Controllers.HomeController
 
         }
 
-        [HttpPost("message/{message}")]
+
+        [HttpPut("blockuser")]
+        public void BlockUser(UserAction userAction)
+        {
+
+        }
+
+        [HttpPost("message")]
         public Message SendMessage(Message message)
         {
             return new Message { };
         }
 
-        [HttpPost("userstoclub/{useridlist}")]
-        public void AddUsersToClub(List<Guid> UserIdList)
-        {
-
-        }
-
-        [HttpPost("blockuser")]
-        public void BlockUser(UserAction userAction)
+        [HttpPost("userstoclub")]
+        public void AddUsersToClub(List<Guid> UserIdList,Guid ClubId,Guid UserId)
         {
 
         }

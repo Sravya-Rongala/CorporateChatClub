@@ -2,7 +2,7 @@
 {
     public class UpdatedUserContactDetails
     {
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
         public string? PhoneNumber { get; set; }
 

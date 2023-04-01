@@ -1,4 +1,4 @@
-﻿using WebApi1.Application.DTO;
+﻿/*using WebApi1.Application.DTO;
 namespace WebApi1.Interfaces
 {
     public interface IUserCalls
@@ -10,3 +10,4 @@ namespace WebApi1.Interfaces
         public UpdatedUserContactDetails UpdateContactDetails(UpdatedUserContactDetails updatedcontactDetails);
     }
 }
+*/

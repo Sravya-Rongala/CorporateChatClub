@@ -1,4 +1,4 @@
-﻿using WebApi1.Application.DTO;
+﻿/*using WebApi1.Application.DTO;
 using WebApi1.Application.DTO.Chats;
 
 namespace WebApi1.Interfaces
@@ -14,3 +14,4 @@ namespace WebApi1.Interfaces
         public Message SendMessage(Message message);
     }
 }
+*/

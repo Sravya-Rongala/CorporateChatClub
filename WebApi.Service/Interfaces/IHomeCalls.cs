@@ -1,4 +1,4 @@
-﻿using WebApi1.Application.DTO;
+﻿/*using WebApi1.Application.DTO;
 namespace WebApi1.Interfaces
 {
     public interface IHomeCalls
@@ -6,7 +6,8 @@ namespace WebApi1.Interfaces
         public IEnumerable<UserClub> GetAllUserClubs(Guid UserId);
         public ClubInformation GetUserClubInformation(Guid ClubId);
         public IEnumerable<SuggestedUser> GetSuggestedUsers(Guid ClubId);
-        public void MakeFavouriteClub(Guid UserId, Guid ClubId); public void ExitClub(Guid UserId, Guid ClubId);
+        public void MakeFavouriteClub(Guid UserId, Guid ClubId); 
+        public void ExitClub(Guid UserId, Guid ClubId);
         public void MuteClub(Guid UserId, Guid ClubId);
         public Message SendMessage(Message message);
         public void AddParticipantsToClub(List<Guid> UserId);
@@ -14,3 +15,4 @@ namespace WebApi1.Interfaces
         public void BlockAParticipant(UserAction userAction);
     }
 }
+*/

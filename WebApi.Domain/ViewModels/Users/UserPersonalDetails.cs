@@ -17,7 +17,7 @@
 
         public int BloodGroup { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateOnly DateOfBirth { get; set; }
 
         public string? About { get; set; }
 

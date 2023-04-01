@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DTO.Clubs;
 using WebApi.Application.DTO.Clubs.ViewModels;
+using WebApi.Domain.ViewModels.Clubs;
 
 namespace WebApi.Controllers
 {
