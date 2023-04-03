@@ -9,7 +9,7 @@
     [ExitedOn] DATETIME NULL,
     [ClubOpenedAt] DATETIME NULL,
     [CreatedBy] varchar(max) NULL,
-    [CreatedOn] DateTime Null,
+    [CreatedOn] DateTime Null DEFAULT (getdate()),
     [ModifiedBy] varchar(max) NUll,
     [ModifiedOn] DateTime null
 )

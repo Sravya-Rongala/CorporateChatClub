@@ -15,7 +15,7 @@ namespace WebApi.Service.MapperProfile
             CreateMap<UserStatusDTO,UserStatus>().ReverseMap();
             CreateMap<UserProfileDTO,UserProfile>().ReverseMap();
             CreateMap<AvailableClubsDTO,AvailableClubs>().ReverseMap();
-
+            CreateMap<InActiveClubDTO,InActiveClub>().ReverseMap();
         }
     }
 }

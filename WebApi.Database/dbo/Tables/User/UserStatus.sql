@@ -11,7 +11,7 @@
     [DeletedBy] UNIQUEIDENTIFIER NULL FOREIGN KEY REFERENCES Users(Id), 
     [DeletedOn] DATETIME NULL,
     [CreatedBy] varchar(max) NULL,
-    [CreatedOn] DateTime Null,
+    [CreatedOn] DateTime Null DEFAULT (getdate()),
     [ModifiedBy] varchar(max) NUll,
     [ModifiedOn] DateTime null
 )

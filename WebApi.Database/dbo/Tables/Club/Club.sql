@@ -6,9 +6,9 @@
     [Description] TEXT NOT NULL, 
     [ProfilePicture] NVARCHAR(MAX) NULL, 
     [ClubCreatedBy] UNIQUEIDENTIFIER NOT NULL, 
-    [ClubCreatedOn] DATETIME NOT NULL DEFAULT (getdate()),
+    [ClubCreatedOn] DATETIME NOT NULL DEFAULT (getdate()) ,
     [CreatedBy] varchar(max) NULL,
-    [CreatedOn] DateTime Null,
+    [CreatedOn] DateTime Null DEFAULT (getdate()),
     [ModifiedBy] varchar(max) NUll,
-    [ModifiedOn] DateTime null
+    [ModifiedOn] DateTime null 
 )

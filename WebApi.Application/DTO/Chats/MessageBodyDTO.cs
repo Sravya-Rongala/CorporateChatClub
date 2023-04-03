@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Chats
 {
-    public class MessageBody
+    public class MessageBodyDTO
     {
         public string? Message { get; set; }
 

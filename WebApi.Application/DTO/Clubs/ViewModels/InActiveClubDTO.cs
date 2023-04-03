@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Clubs.ViewModels
 {
-    public class InActiveClub
+    public class InActiveClubDTO
     {
         public Guid ClubId { get; set; }
         public string? ClubName { get; set; }

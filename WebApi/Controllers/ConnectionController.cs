@@ -14,42 +14,42 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("alluserconnections")]
-        public IEnumerable<Chat> GetAllUserChats()
+        public IEnumerable<ChatDTO> GetAllUserChats()
         {
-            IEnumerable<Chat> a = new List<Chat>();
+            IEnumerable<ChatDTO> a = new List<ChatDTO>();
             return a;
         }
 
         [HttpGet("userchathistory/{userid}/{receiverid}")]
-        public IEnumerable<Message> GetUserChatHistory(Guid UserId, Guid ReceiverId)
+        public ChatHistoryDTO GetUserChatHistory(Guid UserId, Guid ReceiverId)
         {
-            IEnumerable<Message> a = new List<Message>();
-            return a;
+            
+            return  new ChatHistoryDTO();
         }
 
         [HttpGet("suggestedconnection")]
-        public IEnumerable<SuggestedConnection> GetSuggestedConnections()
+        public IEnumerable<SuggestedConnectionDTO> GetSuggestedConnections()
         {
-            IEnumerable<SuggestedConnection> a = new List<SuggestedConnection>();
+            IEnumerable<SuggestedConnectionDTO> a = new List<SuggestedConnectionDTO>();
             return a;
         }
 
         [HttpGet("pendingconnection/{userid}/{requesteduserid}")]
-        public PendingConnection GetPendingConnection(Guid UserId,Guid RequestedUserId) 
+        public PendingConnectionDTO GetPendingConnection(Guid UserId, Guid RequestedUserId)
         {
-            return new PendingConnection();
+            return new PendingConnectionDTO();
         }
 
         [HttpGet("unseenconnectioncount/{userid}")]
         public int GetUnseenConnectionCount(Guid UserId)
-        { 
-            return 0; 
+        {
+            return 0;
         }
 
         [HttpPost("connectionrequest/{userid}/{requesteduserid}")]
         public void SendConnectionRequest(Guid UserId, Guid RequestedUserId)
         {
-            
+
         }
 
 

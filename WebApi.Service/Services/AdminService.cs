@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using System.Collections.Generic;
+using WebApi.Application.DTO.Clubs.ViewModels;
 using WebApi.Application.DTO.Users;
+using WebApi.Application.DTO.Users.ViewModels;
 using WebApi.Domain.ViewModels.Clubs;
 using WebApi.Domain.ViewModels.Users;
 using WebApi.Infrastructure.Interfaces;
@@ -16,38 +19,33 @@ namespace WebApi.Service.Services
             _adminRepository = adminRepository;
             _mapper = mapper;
         }
-        /*public IEnumerable<InActiveClub> GetInActiveClubs()
+        public IEnumerable<InActiveClubDTO> GetInActiveClubs()
         {
-            return _adminRepository.GetInActiveClubs();
+            return _mapper.Map<IEnumerable<InActiveClubDTO>>(_adminRepository.GetInActiveClubs());
         }
-        public IEnumerable<AvailableClubs> GetAvailableClubs()
+        public IEnumerable<AvailableClubsDTO> GetAvailableClubs()
         {
-            return _adminRepository.GetAvailableClubs();
+            return _mapper.Map<IEnumerable<AvailableClubsDTO>>(_adminRepository.GetAvailableClubs());
         }
-        public IEnumerable<UserProfile> GetAllUsers()
+        public IEnumerable<UserProfileDTO> GetAllUsers()
         {
-            return _adminRepository.GetAllUsers();
+            return _mapper.Map<IEnumerable<UserProfileDTO>>(_adminRepository.GetAllUsers());
         }
-        public void UpdateClubActivationStatus(Action action)
+        /*public void UpdateClubActivationStatus(Action action)
         {
             _adminRepository.UpdateClubActivationStatus(action);
         }
-        public void DeleteClub(Action action)
-        {
-            _adminRepository.DeleteClub(action);
-        }
-        public UserStatus UpdateUserActivationStatus(Action action)
+        public UserStatus UpdateUserActivationStatus(ActionUpdater action)
         {
             return _adminRepository.UpdateUserActivationStatus(action);
         }
-        public void DeleteUser(Action action)
+        public void Delete(ActionUpdater action)
         {
-            _adminRepository.DeleteUser(action);
+            _adminRepository.Delete(action);
         }*/
         public Guid AddNewUser(UserDTO newUser)
         {
-
-             return _adminRepository.AddNewUser(_mapper.Map<User>(newUser));
+            return _adminRepository.AddNewUser(_mapper.Map<User>(newUser));
         }
     }
 }

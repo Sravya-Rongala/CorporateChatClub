@@ -24,7 +24,7 @@ namespace WebApi.Controllers.HomeController
         }
 
         [HttpGet("userclubchat/{clubid}/{userid}")]
-        public IEnumerable<Message> GetUserClubChatHistory(Guid ClubId, Guid UserId)
+        public ChatHistory GetUserClubChatHistory(Guid ClubId, Guid UserId)
         {
             IEnumerable<Message> a = new List<Message>();
             return a;
@@ -52,8 +52,8 @@ namespace WebApi.Controllers.HomeController
 
         }
 
-        [HttpPut("favouriteChat/{userid}/{chatid}")]
-        public void MakeFavouriteChat(Guid UserId,Guid ChatId)
+        [HttpPut("favouriteChat")]
+        public void MakeFavouriteChat(ActionUpdater action)
         {
 
         }
@@ -64,9 +64,9 @@ namespace WebApi.Controllers.HomeController
 
         }
 
-        [HttpPut("mutechat/{userid}/{chatid}")]
+        [HttpPut("mutechat")]
 
-        public void MuteChat(Guid UserId, Guid ChatId)
+        public void MuteChat(ActionUpdater action)
         {
 
         }

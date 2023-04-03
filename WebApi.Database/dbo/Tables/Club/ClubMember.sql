@@ -3,10 +3,10 @@
 	[ClubId] UNIQUEIDENTIFIER NOT NULL Foreign Key References Club(Id), 
     [UserId] UNIQUEIDENTIFIER NOT NULL Foreign Key References Users(Id),
     [AddedBy] UNIQUEIDENTIFIER NOT NULL Foreign Key References Users(Id), 
-    [AddedOn] DATETIME NOT NULL  , 
+    [AddedOn] DATETIME NOT NULL DEFAULT (getdate())  , 
     [RemovedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
     [RemovedOn] DATETIME NULL , 
-    [IsBlocked] BIT NULL, 
+    [IsBlocked] BIT NULL DEFAULT 0, 
     [BlockedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
     [Role] INT NOT NULL, 
     [IsActive] BIT NOT NULL DEFAULT 1, 
@@ -16,7 +16,7 @@
     [ReactivatedOn] DATETIME NULL,
     [Reason] TEXT NULL, 
     [CreatedBy] varchar(max) NULL,
-    [CreatedOn] DateTime Null,
+    [CreatedOn] DateTime Null DEFAULT (getdate()),
     [ModifiedBy] varchar(max) NUll,
     [ModifiedOn] DateTime null
 )

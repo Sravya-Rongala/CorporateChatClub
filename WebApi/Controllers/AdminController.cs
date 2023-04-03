@@ -17,8 +17,8 @@ namespace WebApi.Controllers
             _adminservices = AdminServices;
         }
 
-       /* [HttpGet("inactiveclubs")]
-        public IEnumerable<InActiveClub> GetInActiveClubs()
+        [HttpGet("inactiveclubs")]
+        public IEnumerable<InActiveClubDTO> GetInActiveClubs()
         {
             return _adminservices.GetInActiveClubs();
         }
@@ -29,41 +29,35 @@ namespace WebApi.Controllers
             return _adminservices.GetAvailableClubs();
         }
 
-        [HttpGet("userdetails/{userid}")]
-        public IEnumerable<UserProfileDTO> GetAllUsers(Guid UserId)
+        [HttpGet("allusers")]
+        public IEnumerable<UserProfileDTO> GetAllUsers()
         {
-            return _adminservices.GetAllUsers(UserId);
+            return _adminservices.GetAllUsers();
         }
-*/
+
         [HttpPost("adduser")]
         public Guid AddUser(UserDTO addUser)
         {
-           return   _adminservices.AddNewUser(addUser);
+            return _adminservices.AddNewUser(addUser);
         }
 
-     /*   [HttpPut("club/activationstatus")]
-        public void UpdateClubActivationStatus(Action action)
+       /* [HttpPut("club/activationstatus")]
+        public void UpdateClubActivationStatus(ActionUpdater action)
         {
             _adminservices.UpdateClubActivationStatus(action);
         }
 
         [HttpPut("user/activationstatus")]
-        public UserStatus UpdateUserActivationStatus(Action action)
+        public UserStatusDTO UpdateUserActivationStatus(ActionUpdater action)
         {
             return _adminservices.UpdateClubActivationStatus(action);
         }
 
-        [HttpDelete("club")]
-        public void DeleteClub(Action action)
+        [HttpDelete]
+        public void Delete(ActionUpdater action)
         {
-            _adminservices.DeleteClub(action);
-        }
-
-        [HttpDelete("user")]
-        public void DeleteUser(Action action)
-        {
-            _adminservices.DeleteUser(action);
+            _adminservices.Delete(action);
         }*/
-       
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Chats
 {
-    public class Chat
+    public class ChatDTO
     {
         public Guid  ReceiverId { get; set; }
         public string? ReceiverName { get; set; }

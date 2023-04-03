@@ -11,41 +11,40 @@ namespace WebApi.Infrastructure.Repositories.Dapper
     public class AdminRepository : IAdminRepository
     {
         private DbContext _db;
-        public AdminRepository(DbContext db) 
+        public AdminRepository(DbContext db)
         {
             _db = db;
         }
-       /* public IEnumerable<InActiveClub> GetInActiveClubs()
+        public IEnumerable<InActiveClub> GetInActiveClubs()
         {
-           return _db.connection.Get<InActiveClubView>();
+            var query = "Select Id, Name, ClubType, Description, CreatedBy, CreatedOn, Reason, DeactivatedBy, DeactiavtedOn from ClubDetailsView where IsActive = 0";
+            return _db.connection.Query<InActiveClub>(query);
         }
         public IEnumerable<UserProfile> GetAllUsers()
         {
-            return _db.connection.Get<AllUsersView>();
+            var query = "Select Id,DisplayName,Email,Phone,UserAccess,AddedBy,AddedOn,count(*) as ActiveClubs from AllUsersView where IsActive = 1 group by Id,DisplayName,Email,Phone,UserAccess,AddedBy,AddedOn";
+            return _db.connection.Query<UserProfile>(query);
         }
         public IEnumerable<AvailableClubs> GetAvailableClubs()
         {
-            return _db.connection.Get<AvailableClubsView>();
+            var query = "Select Id,Name,ProfilePicture from ClubDetailsView where IsActive = 1 and ClubType!= 3";
+            return _db.connection.Query<AvailableClubs>(query);
         }
-        public void UpdateClubActivationStatus(Action action)
+       /* public void UpdateClubActivationStatus(ActionUpdater action)
         {
 
         }
-        public void DeleteClub(Action action)
+        public UserStatus UpdateUserActivationStatus(ActionUpdater action)
         {
 
         }
-        public UserStatus UpdateUserActivationStatus(Action action)
+        public void Delete(ActionUpdater action)
         {
 
-        }
-        public void DeleteUser(Action action)
-        {
-            _db
         }*/
         public Guid AddNewUser(User newUser)
         {
-            var sql = "Insert into Users(FirstName, MiddleName, LastName, Email, Phone, DisplayName, UserAccess, AddedBy, JobTitle) OUTPUT Inserted.Id values (@firstname, @middlename, @lastname, @email, @phone, @displayname, @userstatus, @AdminId, @JobTitle)";
+            var sql = "Insert into Users(FirstName, MiddleName, LastName, Email, Phone, DisplayName, UserAccess, AddedBy, AddedOn, JobTitle) OUTPUT Inserted.Id values (@firstname, @middlename, @lastname, @email, @phone, @displayname, @userstatus, @AdminId, @AddedOn, @JobTitle)";
             return _db.connection.QuerySingle<Guid>(sql, newUser);
 
         }

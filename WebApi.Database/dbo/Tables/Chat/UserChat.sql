@@ -1,14 +1,13 @@
 ﻿CREATE TABLE [dbo].[UserChat]
 (
-	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
     [UserConnectionId] UNIQUEIDENTIFIER NOT NULL FOREIGN KEY REFERENCES UserConnection(Id),
-    [IsFavourite] BIT NOT NULL, 
-    [IsMuted] BIT NOT NULL, 
-    [IsBlocked] BIT NOT NULL, 
+    [IsFavourite] BIT NOT NULL DEFAULT 0, 
+    [IsMuted] BIT NOT NULL DEFAULT 0, 
+    [IsBlocked] BIT NOT NULL DEFAULT 0, 
     [BlockedOn] DATETIME NULL, 
-    [MessageId] UNIQUEIDENTIFIER NULL,
     [CreatedBy] varchar(max) NULL,
-    [CreatedOn] DateTime Null,
+    [CreatedOn] DateTime Null DEFAULT (getdate()),
     [ModifiedBy] varchar(max) NUll,
     [ModifiedOn] DateTime null
 )

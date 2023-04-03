@@ -5,7 +5,7 @@
     [IsActive] BIT NOT NULL DEFAULT 1, 
     [DeletedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id),
     [DeletedOn] DATETIME NULL, 
-    [ReactivedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
+    [ReactivatedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
     [ReactivatedOn] DATETIME NULL, 
     [DeactivatedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
     [DeactiavtedOn] DATETIME NULL, 

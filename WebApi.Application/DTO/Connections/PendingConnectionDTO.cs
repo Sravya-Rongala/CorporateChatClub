@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Connections
 {
-    public class PendingConnection
+    public class PendingConnectionDTO
     {
         public string? Name { get; set; }
         public string? ProfilePic { get; set; }

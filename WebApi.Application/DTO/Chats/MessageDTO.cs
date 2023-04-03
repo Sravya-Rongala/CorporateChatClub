@@ -2,7 +2,7 @@
 
 namespace WebApi.Application.DTO.Chats
 {
-    public class Message
+    public class MessageDTO
     {
         public Guid SenderId { get; set; }
 
@@ -11,7 +11,7 @@ namespace WebApi.Application.DTO.Chats
 
         public string? SenderProfilePicture { get; set; }
 
-        public MessageBody? MessageBody { get; set; }
+        public MessageBodyDTO? MessageBody { get; set; }
 
         public string[]? MessageAttachment { get; set; }
 
