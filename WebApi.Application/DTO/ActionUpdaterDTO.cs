@@ -1,13 +1,11 @@
 ﻿namespace WebApi.Application.DTO
 {
-   public class ActionUpdater
+   public class ActionUpdaterDTO
     {
-        public Guid UserId { get; set; }
-
-        public bool IsClub { get; set; }
-    
         public Guid ActionTakenBy { get; set; }
-
+        public Guid ActionTargetId { get; set; }    
         public string? Reason { get; set; }
+        public bool IsClub { get; set; }
+
     }
 }

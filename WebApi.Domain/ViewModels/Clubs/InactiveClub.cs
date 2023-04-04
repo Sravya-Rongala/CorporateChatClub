@@ -8,7 +8,7 @@
         public int ClubType { get; set; }
         public Guid ClubCreatedBy { get; set; }
         public DateTime ClubCreatedOn { get; set; }
-        public string? ClubDeactivatedBy { get; set; }
+        public Guid ClubDeactivatedBy { get; set; }
         public DateTime CLubDeactivatedOn { get; set; }
         public string? Reason { get; set; }
     }

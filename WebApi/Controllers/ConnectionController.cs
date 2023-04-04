@@ -23,8 +23,8 @@ namespace WebApi.Controllers
         [HttpGet("userchathistory/{userid}/{receiverid}")]
         public ChatHistoryDTO GetUserChatHistory(Guid UserId, Guid ReceiverId)
         {
-            
-            return  new ChatHistoryDTO();
+
+            return new ChatHistoryDTO();
         }
 
         [HttpGet("suggestedconnection")]

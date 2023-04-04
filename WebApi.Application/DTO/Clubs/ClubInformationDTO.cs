@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Clubs
 {
-    public class ClubInformation
+    public class ClubInformationDTO
     {
         public Guid ClubId { get; set; }
 

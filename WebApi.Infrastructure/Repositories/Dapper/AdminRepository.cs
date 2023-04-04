@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-using Dapper;
-using Dapper.Contrib.Extensions;
+﻿using Dapper;
 using WebApi.Domain.Data;
+using WebApi.Domain.ViewModels;
 using WebApi.Domain.ViewModels.Clubs;
 using WebApi.Domain.ViewModels.Users;
 using WebApi.Infrastructure.Interfaces;
@@ -17,37 +16,76 @@ namespace WebApi.Infrastructure.Repositories.Dapper
         }
         public IEnumerable<InActiveClub> GetInActiveClubs()
         {
-            var query = "Select Id, Name, ClubType, Description, CreatedBy, CreatedOn, Reason, DeactivatedBy, DeactiavtedOn from ClubDetailsView where IsActive = 0";
+            var query = "Select ClubId, ClubName, ClubType, ClubDescription, ClubCreatedBy, ClubCreatedOn, Reason, DeactivatedBy, DeactivatedOn from ClubDetailsView where IsActive = 0";
             return _db.connection.Query<InActiveClub>(query);
+
         }
         public IEnumerable<UserProfile> GetAllUsers()
         {
-            var query = "Select Id,DisplayName,Email,Phone,UserAccess,AddedBy,AddedOn,count(*) as ActiveClubs from AllUsersView where IsActive = 1 group by Id,DisplayName,Email,Phone,UserAccess,AddedBy,AddedOn";
+            var query = "Select Id,DisplayName as Name,Email,Phone,UserAccess as UserStatus,AddedBy,AddedOn,count(*) as ClubCount from AllUsersView where IsActive = 1 group by Id,DisplayName,Email,Phone,UserAccess,AddedBy,AddenOn";
             return _db.connection.Query<UserProfile>(query);
         }
         public IEnumerable<AvailableClubs> GetAvailableClubs()
         {
-            var query = "Select Id,Name,ProfilePicture from ClubDetailsView where IsActive = 1 and ClubType!= 3";
+            var query = "Select ClubId,ClubName,ClubProfilePicture from ClubDetailsView where IsActive = 1 and ClubType!= 3";
             return _db.connection.Query<AvailableClubs>(query);
         }
-       /* public void UpdateClubActivationStatus(ActionUpdater action)
+
+        public void DeleteClub(ActionUpdater action)
         {
+            action.ActionTakenOn = DateTime.Now;
+            var query = "update ClubStatus set IsActive=0 ,DeletedBy= @actiontakenby ,DeletedOn=@actiontakenOn, Reason=@reason where ClubId=@actiontargetId ";
+            _db.connection.Execute(query, action);
+        }
+
+        public void DeleteUser(ActionUpdater action)
+        {
+            action.ActionTakenOn = DateTime.Now;
+            var query = "update UserStatus set IsActive=0 ,DeletedBy= @actiontakenby ,DeletedOn=@actiontakenOn, Reason=@reason where UserId=@actiontargetId ";
+            _db.connection.Execute(query, action);
+        }
+        public void UpdateClubActivationStatus(ActionUpdater action)
+        {
+            action.ActionTakenOn = DateTime.Now;
+            var query1 = "select IsActive from ClubStatus where ClubId=@actiontargetId";
+            var query2 = "";
+            var a = _db.connection.QuerySingle(query1, new { actiontargetId = action.ActionTargetId });
+            Console.WriteLine(a.IsActive);
+            if (a.IsActive)
+            {
+                query2 = "update ClubStatus set IsActive=0,DeactivatedBy=@actiontakenby,DeactivatedOn=@actiontakenon,Reason=@reason where ClubId=@actiontargetId";
+            }
+            else
+            {
+                query2 = "update ClubStatus set IsActive=1,ReactivedBy=@actiontakenby,ReactivatedOn=@actiontakenon,Reason=@reason where ClubId=@actiontargetId";
+            }
+            _db.connection.Execute(query2, action);
+
 
         }
-        public UserStatus UpdateUserActivationStatus(ActionUpdater action)
+        public void UpdateUserActivationStatus(ActionUpdater action)
         {
+
+            action.ActionTakenOn = DateTime.Now;
+            var query1 = "select IsActive from UserStatus where UserId=@actiontargetId";
+            var query2 = "";
+            var a = _db.connection.QuerySingle(query1, new { actiontargetId = action.ActionTargetId });
+            Console.WriteLine(a.IsActive);
+            if (a.IsActive)
+            {
+                query2 = "update UserStatus set IsActive=0,DeactivatedBy=@actiontakenby,DeactivatedOn=@actiontakenon,Reason=@reason where UserId=@actiontargetId";
+            }
+            else
+            {
+                query2 = "update UserStatus set IsActive=1,ReactivatedBy=@actiontakenby,ReactivatedOn=@actiontakenon,Reason=@reason where UserId=@actiontargetId";
+            }
+            _db.connection.Execute(query2, action);
 
         }
-        public void Delete(ActionUpdater action)
-        {
-
-        }*/
         public Guid AddNewUser(User newUser)
         {
-            var sql = "Insert into Users(FirstName, MiddleName, LastName, Email, Phone, DisplayName, UserAccess, AddedBy, AddedOn, JobTitle) OUTPUT Inserted.Id values (@firstname, @middlename, @lastname, @email, @phone, @displayname, @userstatus, @AdminId, @AddedOn, @JobTitle)";
+            var sql = "Insert into Users(FirstName, MiddleName, LastName, Email, Phone, DisplayName, UserAccess, AddedBy, JobTitle) OUTPUT Inserted.Id values (@firstname, @middlename, @lastname, @email, @phone, @displayname, @userstatus, @AdminId, @JobTitle)";
             return _db.connection.QuerySingle<Guid>(sql, newUser);
-
         }
     }
 }
-

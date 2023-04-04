@@ -1,6 +1,8 @@
 ﻿/*using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.DTO;
 using WebApi.Application.DTO.Clubs;
 using WebApi.Application.DTO.Clubs.ViewModels;
+using WebApi.Domain.ViewModels;
 using WebApi.Domain.ViewModels.Clubs;
 
 namespace WebApi.Controllers
@@ -21,26 +23,26 @@ namespace WebApi.Controllers
             return allClubs;
         }
 
-        [HttpPut("report/{clubid}/{userid}")]
-        public void ReportClub(Guid Clubid,Guid UserId)
+        [HttpPut("report")]
+        public void ReportClub(ActionUpdaterDTO actionUpdater)
         {
 
         }
 
         [HttpPut("information")]
-        public void UpdateClubInformation(ClubInformation clubInformation)
+        public void UpdateClubInformation(ClubInformationDTO clubInformation)
         {
 
         }
 
         [HttpPut("type/{clubid}/{userid}")]
-        public void UpdateClubType(Guid UserId, Guid ClubId,int ClubType)
+        public void UpdateClubType(Guid UserId, Guid ClubId, int ClubType)
         {
 
         }
 
         [HttpPost("create")]
-        public void CreateClub(Club club)
+        public void CreateClub(ClubDTO club)
         {
 
         }

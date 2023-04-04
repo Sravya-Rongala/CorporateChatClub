@@ -2,7 +2,7 @@
 
 namespace WebApi.Application.DTO.Clubs
 {
-    public class Club
+    public class ClubDTO
     {
         public string? Name { get; set; }
 

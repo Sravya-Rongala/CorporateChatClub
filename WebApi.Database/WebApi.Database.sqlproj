@@ -74,7 +74,6 @@
     <Build Include="dbo\Tables\Connection\UserConnection.sql" />
     <Build Include="dbo\Tables\Club\Club.sql" />
     <Build Include="dbo\Tables\Club\ClubMember.sql" />
-    <Build Include="dbo\Tables\Club\ClubRequest.sql" />
     <Build Include="dbo\Tables\Club\ClubStatus.sql" />
     <Build Include="dbo\Tables\Club\UserClubAction.sql" />
     <Build Include="dbo\Tables\Chat\Message.sql" />
@@ -84,5 +83,6 @@
     <Build Include="dbo\Tables\User\UserRole.sql" />
     <Build Include="dbo\Tables\User\Users.sql" />
     <Build Include="dbo\Tables\User\UserStatus.sql" />
+    <Build Include="dbo\Tables\Connection\ClubRequest.sql" />
   </ItemGroup>
 </Project>

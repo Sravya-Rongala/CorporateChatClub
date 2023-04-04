@@ -8,7 +8,7 @@
     [ReactivatedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
     [ReactivatedOn] DATETIME NULL, 
     [DeactivatedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
-    [DeactiavtedOn] DATETIME NULL, 
+    [DeactivatedOn] DATETIME NULL, 
     [IsReported] BIT NOT NULL DEFAULT 0, 
     [ReportedBy] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id),
     [ReportedOn] DATETIME NULL, 

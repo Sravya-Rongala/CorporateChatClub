@@ -1,7 +1,13 @@
-﻿namespace WebApi.Domain.Entities.User.Views
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApi.Domain.Entities.User
 {
-    public class UserView
+    [Table("Users")]
+
+    public class Users
     {
+        [Key]
         public Guid Id { get; set; }
 
         public string? FirstName { get; set; }
@@ -14,9 +20,9 @@
 
         public string? Phone { get; set; }
 
-        public string? Address { get; set; }
-
         public string? DisplayName { get; set; }
+
+        public string? JobTitle { get; set; }
 
         public int Gender { get; set; }
 
@@ -32,34 +38,12 @@
 
         public string? ProfilePicture { get; set; }
 
-        public Guid RoleId { get; set; }
+        public Guid AddedBy { get; set; }
+
+        public DateTime AddedOn { get; set; }
 
         public int UserAccess { get; set; }
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 

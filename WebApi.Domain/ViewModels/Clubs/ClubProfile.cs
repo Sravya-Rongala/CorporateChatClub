@@ -16,7 +16,7 @@
 
         public string? ClubProfilePicture { get; set; }
 
-        public string? ClubType { get; set; }
+        public int ClubType { get; set; }
 
         public bool isClubMember { get; set; }
 

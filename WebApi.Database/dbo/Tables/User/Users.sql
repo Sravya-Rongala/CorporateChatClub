@@ -16,7 +16,7 @@
     [Summary] TEXT NULL, 
     [ProfilePicture] NVARCHAR(MAX) NULL, 
     [AddedBy] UNIQUEIDENTIFIER NOT NULL, 
-    [AddenOn] DATETIME NULL DEFAULT (getdate()),
+    [AddedOn] DATETIME NULL DEFAULT (getdate()),
     [UserAccess] INT NOT NULL,
     [CreatedBy] varchar(max) NULL,
     [CreatedOn] DateTime Null DEFAULT (getdate()),

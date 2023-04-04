@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using System.Collections.Generic;
+using WebApi.Application.DTO;
 using WebApi.Application.DTO.Clubs.ViewModels;
 using WebApi.Application.DTO.Users;
 using WebApi.Application.DTO.Users.ViewModels;
-using WebApi.Domain.ViewModels.Clubs;
+using WebApi.Domain.ViewModels;
 using WebApi.Domain.ViewModels.Users;
 using WebApi.Infrastructure.Interfaces;
 using WebApi.Interfaces;
@@ -31,20 +31,34 @@ namespace WebApi.Service.Services
         {
             return _mapper.Map<IEnumerable<UserProfileDTO>>(_adminRepository.GetAllUsers());
         }
-        /*public void UpdateClubActivationStatus(Action action)
+
+        public void UpdateActivationStatus(ActionUpdaterDTO action)
         {
-            _adminRepository.UpdateClubActivationStatus(action);
+            if (action.IsClub == true)
+            {
+                _adminRepository.UpdateClubActivationStatus(_mapper.Map<ActionUpdater>(action));
+            }
+            else
+            {
+                _adminRepository.UpdateUserActivationStatus(_mapper.Map<ActionUpdater>(action));
+            }
+
         }
-        public UserStatus UpdateUserActivationStatus(ActionUpdater action)
+        public void Delete(ActionUpdaterDTO action)
         {
-            return _adminRepository.UpdateUserActivationStatus(action);
+
+            if (action.IsClub == true)
+            {
+                _adminRepository.DeleteClub(_mapper.Map<ActionUpdater>(action));
+            }
+            else
+            {
+                _adminRepository.DeleteUser(_mapper.Map<ActionUpdater>(action));
+            }
         }
-        public void Delete(ActionUpdater action)
-        {
-            _adminRepository.Delete(action);
-        }*/
         public Guid AddNewUser(UserDTO newUser)
         {
+
             return _adminRepository.AddNewUser(_mapper.Map<User>(newUser));
         }
     }
