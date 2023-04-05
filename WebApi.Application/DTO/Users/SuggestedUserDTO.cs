@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Users
 {
-    public class SuggestedUser
+    public class SuggestedUserDTO
     {
         public Guid UserId { get; set; }
 

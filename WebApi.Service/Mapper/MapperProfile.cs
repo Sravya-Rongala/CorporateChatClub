@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WebApi.Application.DTO;
+using WebApi.Application.DTO.Clubs;
 using WebApi.Application.DTO.Clubs.ViewModels;
 using WebApi.Application.DTO.Users;
 using WebApi.Application.DTO.Users.ViewModels;
@@ -22,7 +23,9 @@ namespace WebApi.Service.MapperProfile
             CreateMap<UserInformationDTO, UserInformation>().ReverseMap();
             CreateMap<UserPersonalDetailsDTO, UserPersonalDetails>().ReverseMap();
             CreateMap<UserContactDetailsDTO,UserContactDetails>().ReverseMap();
-                     
+            CreateMap<ClubProfileDTO, ClubProfile>().ReverseMap();
+            CreateMap<ClubDTO, Club>().ReverseMap();
+            CreateMap<ClubInformationDTO, ClubInformation>().ReverseMap();
         }
     }
 }

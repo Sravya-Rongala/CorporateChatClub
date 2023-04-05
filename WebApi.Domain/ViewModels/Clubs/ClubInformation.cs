@@ -1,10 +1,8 @@
-﻿namespace WebApi.Application.DTO.Clubs
+﻿namespace WebApi.Domain.ViewModels.Clubs
 {
     public class ClubInformation
     {
         public Guid ClubId { get; set; }
-
-        public Guid UserId { get; set; }
         public string? ClubName { get; set; }
 
         public string? ClubDescription { get; set; }

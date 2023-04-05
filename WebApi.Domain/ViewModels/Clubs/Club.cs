@@ -1,6 +1,7 @@
 ﻿using WebApi.Application.DTO.Users;
+using WebApi.Domain.ViewModels.Users;
 
-namespace WebApi.Application.DTO.Clubs
+namespace WebApi.Domain.ViewModels.Clubs
 {
     public class Club
     {
@@ -11,8 +12,6 @@ namespace WebApi.Application.DTO.Clubs
         public string? ProfilePicture { get; set; }
 
         public int ClubType { get; set; }
-
-        public Guid AddedBy { get; set; }
 
         public List<SuggestedUser>? ClubAdmins { get; set; }
 

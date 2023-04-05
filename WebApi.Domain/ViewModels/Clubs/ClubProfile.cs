@@ -18,6 +18,8 @@
 
         public int ClubType { get; set; }
 
+        public int Role { get; set; }
+
         public bool isClubMember { get; set; }
 
         public bool isRequested { get; set; }

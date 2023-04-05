@@ -12,10 +12,8 @@ namespace WebApi.Application.DTO.Clubs
 
         public int ClubType { get; set; }
 
-        public Guid AddedBy { get; set; }
+        public List<SuggestedUserDTO>? ClubAdmins { get; set; }
 
-        public List<SuggestedUser>? ClubAdmins { get; set; }
-
-        public List<SuggestedUser>? ClubMembers { get; set; }
+        public List<SuggestedUserDTO>? ClubMembers { get; set; }
     }
 }
