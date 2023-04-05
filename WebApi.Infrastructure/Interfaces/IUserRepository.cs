@@ -15,6 +15,8 @@ namespace WebApi.Infrastructure.Interfaces
 
         public Guid GetAddressId(Guid UserId);
 
+        public bool IsUserExist(Guid UserId);
+
         public int UpdateAddressDetails(Guid AddressId, UserContactDetails contactDetails);
 
         public bool UpdateContactDetails(Guid UserId, UserContactDetails ContactDetails);

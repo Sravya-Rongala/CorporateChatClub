@@ -1,6 +1,7 @@
 using AutoMapper;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
+using WebApi;
 using WebApi.Domain.Data;
 using WebApi.Infrastructure.Interfaces;
 using WebApi.Infrastructure.Repositories.Dapper;
@@ -35,11 +36,9 @@ builder.Services.AddAutoMapper(cfg =>
 
 
 //DAPPER 
-container.Register<DbContext>();
-container.Register<IAdminRepository, AdminRepository>();
-container.Register<IAdminService, AdminService>();
-container.Register<IUserRepository, UserRepository>();
-container.Register<IUserService, UserService>();
+
+container.RegisterPackages(new[] { typeof(RegisterServices).Assembly });
+
 
 
 var app = builder.Build();

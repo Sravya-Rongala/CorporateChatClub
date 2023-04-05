@@ -14,5 +14,6 @@ namespace WebApi.Interfaces
         public bool UpdateUserSummary(Guid UserId, string userSummary);
 
         public bool UpdateContactDetails(Guid UserId, UserContactDetailsDTO contactDetails);
+        public bool IsUserExist(Guid UserId);
     }
 }

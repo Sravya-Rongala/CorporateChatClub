@@ -13,6 +13,8 @@
 
         public int ClubParticipantsCount { get; set; }
 
+        public string? ProfilePicture { get; set; }
+
         public bool IsMuted { get; set; }
     }
 }

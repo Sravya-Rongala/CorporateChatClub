@@ -18,6 +18,12 @@ namespace WebApi.Infrastructure.Repositories.Dapper
             this.connection = this._db.CreateConnection();
         }
 
+        public bool IsUserExist(Guid UserId)
+        {
+            var query = "SELECT 1 FROM Users WHERE Id = @UserId";
+            return this.connection.QueryFirstOrDefault<bool>(query, new {UserId});
+        }
+
         public UserInformation GetUserInformation(Guid UserId)
         {
             var query = "Select * From UserInformationView Where Id = @UserId";
