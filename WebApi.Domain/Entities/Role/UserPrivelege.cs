@@ -9,6 +9,15 @@ namespace WebApi.Domain.Entities.Role
         [Key]
         public Guid Id { get; set; }
         public Guid RoleId { get; set; }
+
+        public Guid UserId { get; set; }
         public string? Privelege { get; set; }
+
+        public string? CreatedBy { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

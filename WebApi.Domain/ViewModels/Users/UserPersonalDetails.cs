@@ -2,8 +2,6 @@
 {
     public class UserPersonalDetails
     {
-        public Guid UserId { get; set; }
-
         public string? FirstName { get; set; }
 
         public string? MiddleName { get; set; }
@@ -17,7 +15,7 @@
 
         public int BloodGroup { get; set; }
 
-        public DateOnly DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         public string? About { get; set; }
 

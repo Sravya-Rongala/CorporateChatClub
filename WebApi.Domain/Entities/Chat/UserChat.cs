@@ -18,7 +18,11 @@ namespace WebApi.Domain.Entities.Chat
         public bool IsBlocked { get; set; }
 
         public DateTime BlockedOn { get; set; }
+        public string? CreatedBy { get; set; }
 
-        public Guid MessageId { get; set; }
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

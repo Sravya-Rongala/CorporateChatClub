@@ -1,13 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace WebApi.Domain.Entities.User
+﻿namespace WebApi.Domain.ViewModels.Users
 {
-    [Table("Users")]
-
-    public class Users
+    public class UserInformation
     {
-        [Key]
         public Guid Id { get; set; }
 
         public string? FirstName { get; set; }
@@ -22,8 +16,6 @@ namespace WebApi.Domain.Entities.User
 
         public string? DisplayName { get; set; }
 
-        public string? JobTitle { get; set; }
-
         public int Gender { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
@@ -37,20 +29,7 @@ namespace WebApi.Domain.Entities.User
         public string? Summary { get; set; }
 
         public string? ProfilePicture { get; set; }
-
-        public Guid AddedBy { get; set; }
-
-        public DateTime AddedOn { get; set; }
-
-        public int UserAccess { get; set; }
-
-        public string? CreatedBy { get; set; }
-
-        public DateTime? CreatedOn { get; set; }
-
-        public string? ModifiedBy { get; set; }
-        public DateTime? ModifiedOn { get; set; }
+        
+        public string? Address { get; set; }
     }
 }
-
- 

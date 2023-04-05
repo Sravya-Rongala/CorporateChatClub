@@ -32,5 +32,12 @@ namespace WebApi.Domain.Entities.Club
         public DateTime ReportedOn { get; set; }
 
         public string? Reason { get; set; }
+
+        public string? CreatedBy { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

@@ -1,49 +1,52 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DTO.Users;
+using WebApi.Domain.ViewModels.Users;
+using WebApi.Interfaces;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
 
-        public UserController()
-        {
 
+        private readonly IUserService _userService;
+       
+        public UserController(IUserService UserService)
+        {
+            _userService = UserService;
         }
 
-        [HttpGet("allusersinformation")]
-        public IEnumerable<UserDetails> GetAllUsers()
+        [HttpGet("{userid:Guid}")]
+        public UserInformationDTO GetUserInformation(Guid userid)
         {
-            IEnumerable<UserDetails> a = new List<UserDetails>();
-            return a;
+            return _userService.GetUserInformation(userid);
         }
 
-        [HttpPut("userprofilepicture")]
-        public UserProfilePicture UpdateProfilePicture(UserProfilePicture picture)
+        [HttpPut("profilepicture/{userid:Guid}")]
+        public bool UpdateProfilePicture(Guid userid,string Picture)
         {
-            return new UserProfilePicture();
+            return _userService.UpdateProfilePicture(userid,Picture);
         }
 
-        [HttpPut("userpersonaldetails")]
-        public UserPersonalDetails UpdatePersonalDeails(UserPersonalDetails personalDetails)
+        [HttpPut("personaldetails/{userid:Guid}")]
+        public bool UpdatePersonalDetails(Guid userid, UserPersonalDetailsDTO personalDetails)
         {
-            return new UserPersonalDetails();
+            return _userService.UpdatePersonalDetails(userid,personalDetails);
         }
 
-        [HttpPut("usersummary")]
-        public UserSummary UpdateUserSummary(UserSummary userSummary)
+        [HttpPut("summary/{userid:Guid}")]
+        public bool UpdateUserSummary(Guid userid,string userSummary)
         {
-            return new UserSummary();
+            return _userService.UpdateUserSummary(userid,userSummary);
         }
 
-        [HttpPut("usercontactdetails")]
-        public UpdatedUserContactDetails UpdateContactDetails(UpdatedUserContactDetails updatedcontactDetails)
+        [HttpPut("contactdetails/{userid:Guid}")]
+        public bool UpdateContactDetails(Guid userid, UserContactDetailsDTO contactDetails)
         {
-            return new UpdatedUserContactDetails();
+            return _userService.UpdateContactDetails(userid,contactDetails);
         }
 
     }
 }
-*/

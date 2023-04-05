@@ -14,5 +14,11 @@ namespace WebApi.Domain.Entities.User
         public string? City { get; set; }
         public string? State { get; set; }
         public string? ZipCode { get; set; }
+        public string? CreatedBy { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

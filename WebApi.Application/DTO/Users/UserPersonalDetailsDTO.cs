@@ -1,9 +1,8 @@
 ﻿namespace WebApi.Application.DTO.Users
 {
-    public class UserPersonalDetails
+    public class UserPersonalDetailsDTO
     {
-        public Guid UserId { get; set; }
-
+       
         public string? FirstName { get; set; }
 
         public string? MiddleName { get; set; }

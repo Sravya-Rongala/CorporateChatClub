@@ -2,9 +2,6 @@
 using WebApi.Application.DTO.Clubs.ViewModels;
 using WebApi.Application.DTO.Users;
 using WebApi.Application.DTO.Users.ViewModels;
-using WebApi.Domain.ViewModels;
-using WebApi.Domain.ViewModels.Clubs;
-using WebApi.Domain.ViewModels.Users;
 
 namespace WebApi.Interfaces
 {

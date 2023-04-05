@@ -8,13 +8,17 @@ namespace WebApi.Domain.Data
     {
         private readonly IConfiguration _configuration;
         private readonly string _connectionstring;
-        private readonly IDbConnection _connection;
+        private IDbConnection _connection;
         public DbContext(IConfiguration configuration)
         {
-            _configuration = configuration;
-            _connectionstring = _configuration.GetConnectionString("default")!;
-            _connection = new SqlConnection(_connectionstring);
+            this._configuration = configuration;
+            this._connectionstring = this._configuration.GetConnectionString("default")!;
         }
-        public IDbConnection connection { get { return _connection; } }
+
+        public IDbConnection CreateConnection()
+        {
+           this._connection = new SqlConnection(_connectionstring);
+            return this._connection;
+        }
     }
 }

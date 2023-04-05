@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApi.Domain.Entities.User
+namespace WebApi.Domain.Entities.Connection
 {
     [Table("UserRequest")]
     public class UserRequest
@@ -12,5 +12,12 @@ namespace WebApi.Domain.Entities.User
         public Guid RequestedTo { get; set; }
         public DateTime RequestedOn { get; set; }
         public int RequestStatus { get; set; }
+
+        public string? CreatedBy { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

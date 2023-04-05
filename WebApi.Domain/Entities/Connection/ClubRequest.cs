@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace WebApi.Domain.Entities.Club
+namespace WebApi.Domain.Entities.Connection
 {
     [Table("ClubRequest")]
     public class ClubRequest
@@ -18,5 +18,12 @@ namespace WebApi.Domain.Entities.Club
         public DateTime RequestedOn { get; set; }
 
         public int RequestStatus { get; set; }
+
+        public string? CreatedBy { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }

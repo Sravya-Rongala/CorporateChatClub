@@ -12,6 +12,7 @@ namespace WebApi.Infrastructure.Interfaces
         public void UpdateClubActivationStatus(ActionUpdater action);
 
         public void UpdateUserActivationStatus(ActionUpdater action);
+
 /*        public UserStatus UpdateUserActivationStatus(Action action);*/
         public void DeleteClub(ActionUpdater action);
         public void DeleteUser(ActionUpdater action);

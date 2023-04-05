@@ -38,6 +38,8 @@ builder.Services.AddAutoMapper(cfg =>
 container.Register<DbContext>();
 container.Register<IAdminRepository, AdminRepository>();
 container.Register<IAdminService, AdminService>();
+container.Register<IUserRepository, UserRepository>();
+container.Register<IUserService, UserService>();
 
 
 var app = builder.Build();

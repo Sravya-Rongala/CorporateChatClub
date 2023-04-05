@@ -15,5 +15,12 @@ namespace WebApi.Domain.Entities.Club
         public bool IsExited { get; set; }
         public DateTime ExitedOn { get; set; }
         public DateTime ClubOpenedAt { get; set; }
+
+        public string? CreatedBy { get; set; }
+
+        public DateTime? CreatedOn { get; set; }
+
+        public string? ModifiedBy { get; set; }
+        public DateTime? ModifiedOn { get; set; }
     }
 }
