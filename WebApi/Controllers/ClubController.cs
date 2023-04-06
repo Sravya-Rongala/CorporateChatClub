@@ -29,6 +29,18 @@ namespace WebApi.Controllers
             return _clubService.ReportClub(userid, action);
         }
 
+        [HttpPost("create/{userid:Guid}")]
+        public bool CreateClub(Guid userid, ClubDTO club)
+        {
+            return _clubService.CreateClub(userid, club);
+        }
+
+        [HttpPost("join/{userid:Guid}")]
+        public void JoinClub(Guid userid, Guid ClubId, int ClubType)
+        {
+            _clubService.JoinClub(userid, ClubId, ClubType);
+        }
+
         [HttpPut("information/{userid:Guid}")]
         public bool UpdateClubInformation(Guid userid, ClubInformationDTO clubInformation)
         {
@@ -39,18 +51,6 @@ namespace WebApi.Controllers
         public bool UpdateClubType(Guid userid, Guid ClubId, int ClubType)
         {
             return _clubService.UpdateClubType(userid, ClubId, ClubType);
-        }
-
-        [HttpPost("create/{userid:Guid}")]
-        public Guid CreateClub(Guid userid, ClubDTO club)
-        {
-            return _clubService.CreateClub(userid, club);
-        }
-
-        [HttpPost("join/{userid:Guid}")]
-        public void JoinClub(Guid userid, Guid ClubId)
-        {
-            _clubService.JoinClub(userid, ClubId);
         }
 
         [HttpDelete("cancelrequest/{userid:Guid}")]

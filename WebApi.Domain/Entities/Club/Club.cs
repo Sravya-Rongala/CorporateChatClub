@@ -8,7 +8,6 @@ namespace WebApi.Domain.Entities.Club
     {
         [Key]
         public Guid Id { get; set; }
-
         public string? Name { get; set; }
         public int ClubType { get; set; }
         public string? Description { get; set; }

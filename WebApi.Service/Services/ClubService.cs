@@ -35,17 +35,44 @@ namespace WebApi.Service.Services
         {
             return _clubRepository.UpdateClubType(UserId, ClubId, ClubType);
         }
-        public Guid CreateClub(Guid UserId, ClubDTO club)
+
+        public Guid AddClub(Guid UserId, ClubDTO club)
         {
-            return _clubRepository.CreateClub(UserId, _mapper.Map<Club>(club));
+            return _clubRepository.AddClub(UserId, _mapper.Map<Club>(club));
         }
+
+        public bool CreateClub(Guid UserId, ClubDTO club)
+        {
+            var ClubId = this.AddClub(UserId, club);
+            _clubRepository.AddUserToClub(UserId, ClubId, UserId, 1);
+            _clubRepository.AddUserDataToClubAction(UserId, ClubId);
+            var isClubExist = _clubRepository.IsClubExist(ClubId);
+            if (isClubExist)
+            {
+                _clubRepository.AddClubToClubStatus(ClubId);
+                foreach (var id in club.ClubAdmins!)
+                {
+                    _clubRepository.AddUserToClub(id.UserId, ClubId, UserId,2);
+                    _clubRepository.AddUserDataToClubAction(id.UserId, ClubId);
+                }
+                foreach(var id in club.ClubMembers!)
+                {
+                    _clubRepository.AddUserToClub(id.UserId, ClubId, UserId,3);
+                    _clubRepository.AddUserDataToClubAction(id.UserId, ClubId);
+                }
+                return true;
+            }
+            return false;
+        }
+
         public bool CancelClubRequest(Guid UserId, Guid ClubId)
         {
             return _clubRepository.CancelClubRequest(UserId, ClubId);
         }
-        public void JoinClub(Guid UserId, Guid ClubId)
+
+        public void JoinClub(Guid UserId, Guid ClubId, int ClubType)
         {
-            _clubRepository.JoinClub(UserId, ClubId);
+            _clubRepository.JoinClub(UserId, ClubId, ClubType);
         }
     }
 }

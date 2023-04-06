@@ -2,7 +2,8 @@
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
     [SenderId] UNIQUEIDENTIFIER NOT NULL Foreign Key References Users(Id), 
-    [ReceiverId] UNIQUEIDENTIFIER NOT NULL Foreign Key References Users(Id), 
+    [ReceiverId] UNIQUEIDENTIFIER NULL Foreign Key References Users(Id), 
+    [ClubId] UNIQUEIDENTIFIER NULL Foreign Key References Club(Id), 
     [Body] TEXT NULL, 
     [Attachment] NVARCHAR(MAX) NULL, 
     [SentTime] DATETIME NULL DEFAULT (getdate()), 
