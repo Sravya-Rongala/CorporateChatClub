@@ -13,10 +13,12 @@ namespace WebApi.Service.Services
     public class AdminService : IAdminService
     {
         private readonly IAdminRepository _adminRepository;
+        private readonly IClubRepository _clubRepository;
         private IMapper _mapper;
-        public AdminService(IAdminRepository adminRepository, IMapper mapper)
+        public AdminService(IAdminRepository adminRepository,IClubRepository clubRepository, IMapper mapper)
         {
             _adminRepository = adminRepository;
+            _clubRepository = clubRepository;
             _mapper = mapper;
         }
         public IEnumerable<InActiveClubDTO> GetInActiveClubs()
@@ -59,7 +61,15 @@ namespace WebApi.Service.Services
         public Guid AddNewUser(UserDTO newUser)
         {
 
-            return _adminRepository.AddNewUser(_mapper.Map<User>(newUser));
+           var UserId = _adminRepository.AddNewUser(_mapper.Map<User>(newUser));
+            _adminRepository.AddUserToUserStatus(UserId);
+            foreach (var id in newUser.Clubs!)
+            {
+                _clubRepository.AddUserToClub(UserId, id, newUser.AdminId, 3);
+                _clubRepository.AddUserDataToClubAction(UserId, id);
+            }
+            return UserId;
+
         }
     }
 }

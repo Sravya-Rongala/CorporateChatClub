@@ -1,10 +1,10 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DTO.Chats;
 using WebApi.Application.DTO.Connections;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/connection")]
     [ApiController]
     public class ConnectionController : ControllerBase
     {
@@ -49,12 +49,7 @@ namespace WebApi.Controllers
         [HttpPost("connectionrequest/{userid}/{requesteduserid}")]
         public void SendConnectionRequest(Guid UserId, Guid RequestedUserId)
         {
-
+            
         }
-
-
-
-
     }
 }
-*/

@@ -1,13 +1,7 @@
-using AutoMapper;
 using SimpleInjector;
 using SimpleInjector.Lifestyles;
 using WebApi;
-using WebApi.Domain.Data;
-using WebApi.Infrastructure.Interfaces;
-using WebApi.Infrastructure.Repositories.Dapper;
-using WebApi.Interfaces;
 using WebApi.Service.MapperProfile;
-using WebApi.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

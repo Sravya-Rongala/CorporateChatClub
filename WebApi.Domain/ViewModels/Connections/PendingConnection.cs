@@ -1,4 +1,4 @@
-﻿namespace WebApi.Application.DTO.Connections
+﻿namespace WebApi.Domain.ViewModels.Connections
 {
     public class PendingConnection
     {
@@ -8,7 +8,7 @@
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public int MutualCount { get; set; }
-        public List<string>? MutualNames { get; set; }
+        /*public List<string>? MutualNames { get; set; }*/
         public int RequestStatus { get; set; }
     }
 }

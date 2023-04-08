@@ -1,6 +1,4 @@
-﻿
-
-namespace WebApi.Application.DTO.Chats
+﻿namespace WebApi.Application.DTO.Chats
 {
     public class MessageDTO
     {
@@ -11,7 +9,9 @@ namespace WebApi.Application.DTO.Chats
 
         public string? SenderProfilePicture { get; set; }
 
-        public MessageBodyDTO? MessageBody { get; set; }
+        public string? MessageBody { get; set; }
+
+        public bool MessageBodyType { get; set; }
 
         public string[]? MessageAttachment { get; set; }
 

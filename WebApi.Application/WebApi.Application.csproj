@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Chats\ViewModels\" />
     <Folder Include="Enum\" />
   </ItemGroup>
 

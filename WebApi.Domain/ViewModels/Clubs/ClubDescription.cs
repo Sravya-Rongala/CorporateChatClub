@@ -1,4 +1,4 @@
-﻿namespace WebApi.Application.DTO.Clubs
+﻿namespace WebApi.Domain.ViewModels.Clubs
 {
     public class ClubDescription
     {
@@ -7,7 +7,7 @@
 
         public int ClubType { get; set; }
 
-        public Guid ClubCreatedBy { get; set; }
+        public string? ClubCreatedBy { get; set; }
 
         public DateTime ClubCreatedOn { get; set; }
 

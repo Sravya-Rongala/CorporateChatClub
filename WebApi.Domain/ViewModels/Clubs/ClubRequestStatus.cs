@@ -1,4 +1,4 @@
-﻿namespace WebApi.Application.DTO.Clubs
+﻿namespace WebApi.Domain.ViewModels.Clubs
 {
     public class ClubRequestStatus
     {

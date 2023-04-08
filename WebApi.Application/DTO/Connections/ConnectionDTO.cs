@@ -1,6 +1,6 @@
 ﻿namespace WebApi.Application.DTO.Connections
 {
-    public class Connection
+    public class ConnectionDTO
     {
         public Guid UserId { get; set; }
 

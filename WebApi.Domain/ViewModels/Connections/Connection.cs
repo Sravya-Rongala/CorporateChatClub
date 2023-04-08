@@ -1,4 +1,4 @@
-﻿namespace WebApi.Application.DTO.Connections
+﻿namespace WebApi.Domain.ViewModels.Connections
 {
     public class Connection
     {

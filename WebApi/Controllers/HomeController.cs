@@ -1,101 +1,101 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DTO.Chats;
 using WebApi.Application.DTO.Clubs;
+using WebApi.Application.DTO;
 using WebApi.Application.DTO.Users;
-
+using WebApi.Interfaces;
 
 namespace WebApi.Controllers.HomeController
 {
-    [Route("api/[controller]")]
+    [Route("api/home")]
     [ApiController]
     public class HomeController : ControllerBase
     {
-
-        public HomeController() 
+        private readonly IHomeService _homeService;
+        public HomeController(IHomeService homeService)
         {
+            _homeService = homeService;
+        }
+
+        [HttpGet("{userid:Guid}/userclubs")]
+        public IEnumerable<ChatDTO> GetUserClubs(Guid userid)
+        {
+            return _homeService.GetUserClubs(userid);
 
         }
 
-        [HttpGet("alluserclubs/{userid}")]
-        public IEnumerable<Chat> GetAllUserClubs(Guid UserId)
+        [HttpGet("clubchat/{userid:Guid}")]
+        public ChatHistoryDTO GetClubChatHistory(Guid userid, Guid ClubId)
         {
-            IEnumerable<Chat> a = new List<Chat>();
-            return a;
-        }
-
-        [HttpGet("userclubchat/{clubid}/{userid}")]
-        public ChatHistory GetUserClubChatHistory(Guid ClubId, Guid UserId)
-        {
-            IEnumerable<Message> a = new List<Message>();
-            return a;
-        }
-
-        [HttpGet("userclubinformation/{clubid}")]
-        public ClubDetails GetUserClubInformation(Guid ClubId)
-        {
-            ClubDetails a= new ClubDetails();
-            
-            
-            return new ClubDetails { };
-        }
-
-        [HttpGet("suggestedusers/{clubid}")]
-        public IEnumerable<SuggestedUser> GetSuggestedUsers(Guid ClubId)
-        {
-            IEnumerable<SuggestedUser> a = new List<SuggestedUser>();
-            return a;
-        }
-
-        [HttpPut("clubrequeststatus")]
-        public void UpdateUserClubRequestStatus(ClubRequestStatus clubRequestStatus) 
-        {
+            return _homeService.GetClubChatHistory(userid, ClubId);
 
         }
 
-        [HttpPut("favouriteChat")]
-        public void MakeFavouriteChat(ActionUpdater action)
+        [HttpGet("clubinformation/{clubid:Guid}/{userid:Guid}")]
+        public ClubDetailsDTO GetClubDetails(Guid clubid,Guid userid)
         {
+
+            return _homeService.GetClubDetails(clubid,userid);
 
         }
 
-        [HttpPut("exitclub/{userid}/{clubid}")]
-        public void ExitClub(Guid UserId, Guid ClubId)
+        [HttpGet("suggestedusers/{userid:Guid}")]
+        public IEnumerable<SuggestedUserDTO> GetSuggestedUsers(Guid userid, Guid ClubId)
         {
+            return _homeService.GetSuggestedUsers(userid, ClubId);
 
         }
-
-        [HttpPut("mutechat")]
-
-        public void MuteChat(ActionUpdater action)
+        [HttpPost("message/{userid:Guid}")]
+        public Guid SendMessage(PostMessageDTO message, Guid userid)
         {
-
+            return _homeService.SendMessage(message, userid);
         }
 
-        [HttpPut("removeasadmin")]
-        public void RemoveAsAdmin(UserAction userAction)
+        [HttpPost("userstoclub/{userid:Guid}")]
+        public void AddUsersToClub(List<Guid> UserIdList, Guid ClubId, Guid userid)
         {
+            _homeService.AddUsersToClub(UserIdList, ClubId, userid);
+        }
 
+        [HttpPut("clubrequeststatus/{userid:Guid}")]
+        public bool UpdateUserClubRequestStatus(ClubRequestStatusDTO clubRequestStatus, Guid userid)
+        {
+            return _homeService.UpdateUserClubRequestStatus(clubRequestStatus, userid);
+        }
+
+        [HttpPut("favouriteChat/{userid:Guid}")]
+        public bool MakeFavouriteChat(ActionUpdaterDTO action, Guid userid)
+        {
+            return _homeService.MakeFavouriteChat(action, userid);
+        }
+
+        [HttpPut("mutechat/{userid:Guid}")]
+
+        public bool MuteChat(ActionUpdaterDTO action, Guid userid)
+        {
+            return _homeService.MuteChat(action, userid);
+        }
+
+        [HttpPut("exitclub/{userid:Guid}")]
+        public bool ExitClub(Guid userid, Guid clubid)
+        {
+            return _homeService.ExitClub(userid, clubid);
+        }
+
+        [HttpPut("removeasadmin/{userid:Guid}")]
+        public bool RemoveAsAdmin(UserActionDTO userAction, Guid userid)
+        {
+            return _homeService.RemoveAsAdmin(userAction, userid);
         }
 
 
-        [HttpPut("blockuser")]
-        public void BlockUser(UserAction userAction)
+        [HttpPut("blockuser/{userid:Guid}")]
+        public bool BlockParticipant(UserActionDTO userAction, Guid userid)
         {
-
+            return _homeService.BlockParticipant(userAction, userid);
         }
 
-        [HttpPost("message")]
-        public Message SendMessage(Message message)
-        {
-            return new Message { };
-        }
 
-        [HttpPost("userstoclub")]
-        public void AddUsersToClub(List<Guid> UserIdList,Guid ClubId,Guid UserId)
-        {
-
-        }
 
     }
 }
-*/

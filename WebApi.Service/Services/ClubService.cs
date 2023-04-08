@@ -25,6 +25,7 @@ namespace WebApi.Service.Services
         }
         public bool ReportClub(Guid UserId, ActionUpdaterDTO action)
         {
+
             return _clubRepository.ReportClub(UserId, _mapper.Map<ActionUpdater>(action));
         }
         public bool UpdateClubInformation(Guid UserId, ClubInformationDTO clubInformation)

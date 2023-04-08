@@ -19,6 +19,8 @@ namespace WebApi
             container.Register<IUserService, UserService>();
             container.Register<IClubRepository, ClubRepository>();
             container.Register<IClubService, ClubService>();
+            container.Register<IHomeRepository, HomeRepository>();
+            container.Register<IHomeService, HomeService>();
 
         }
     }

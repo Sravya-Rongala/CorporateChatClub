@@ -1,6 +1,6 @@
-﻿namespace WebApi.Application.DTO.Chats
+﻿namespace WebApi.Domain.ViewModels.Chats
 {
-    public class ChatInformationDTO
+    public class ChatInformation
     {
         public Guid ChatId { get; set; }
 
@@ -9,7 +9,5 @@
         public bool IsFavouriteChat { get; set; }
 
         public bool IsChatMuted { get; set; }
-
-
     }
 }

@@ -87,5 +87,11 @@ namespace WebApi.Infrastructure.Repositories.Dapper
             var sql = "Insert into Users(FirstName, MiddleName, LastName, Email, Phone, DisplayName, UserAccess, AddedBy, JobTitle) OUTPUT Inserted.Id values (@firstname, @middlename, @lastname, @email, @phone, @displayname, @userstatus, @AdminId, @JobTitle)";
             return this.connection.QuerySingle<Guid>(sql, newUser);
         }
+
+        public void AddUserToUserStatus(Guid UserId)
+        {
+            var query = $"Insert into UserStatus(UserId) values ('{UserId}')";
+            this.connection.Execute(query);
+        }
     }
 }

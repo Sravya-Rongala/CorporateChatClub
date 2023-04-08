@@ -69,6 +69,11 @@
     <None Include="dbo\Views\AvailableClubsView.sql" />
     <None Include="dbo\Views\AllUsersView.sql" />
     <None Include="dbo\Views\UserInformationView.sql" />
+    <None Include="dbo\Views\UserClubView.sql" />
+    <None Include="dbo\Views\ClubDescriptionView.sql" />
+    <None Include="dbo\Views\ClubParticipantsView.sql" />
+    <None Include="dbo\Views\UserClubChatDetailsView.sql" />
+    <None Include="dbo\Views\ClubChatHistoryView.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Connection\UserRequest.sql" />
@@ -85,5 +90,6 @@
     <Build Include="dbo\Tables\User\Users.sql" />
     <Build Include="dbo\Tables\User\UserStatus.sql" />
     <Build Include="dbo\Tables\Connection\ClubRequest.sql" />
+    <Build Include="dbo\Views\ClubRequestsView.sql" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
-﻿using WebApi.Application.DTO.Users;
-using WebApi.Domain.ViewModels.Users;
+﻿using WebApi.Domain.ViewModels.Users;
 
 namespace WebApi.Infrastructure.Interfaces
 {

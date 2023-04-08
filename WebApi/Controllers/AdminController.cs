@@ -7,7 +7,7 @@ using WebApi.Application.DTO;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -48,12 +48,6 @@ namespace WebApi.Controllers
             _adminservices.UpdateActivationStatus(action);
         }
 
-       /* [HttpPut("user/activationstatus")]
-        public UserStatusDTO UpdateUserActivationStatus(ActionUpdater action)
-        {
-            return _adminservices.UpdateClubActivationStatus(action);
-        }
-*/
         [HttpDelete]
         public void Delete(ActionUpdaterDTO action)
         {

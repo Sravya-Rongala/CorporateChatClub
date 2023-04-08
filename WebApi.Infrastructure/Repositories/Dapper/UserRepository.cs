@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using System.Data;
-using WebApi.Application.DTO.Users;
 using WebApi.Domain.Data;
 using WebApi.Domain.ViewModels.Users;
 using WebApi.Infrastructure.Interfaces;

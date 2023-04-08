@@ -13,7 +13,8 @@ namespace WebApi.Infrastructure.Interfaces
 
         public void UpdateUserActivationStatus(ActionUpdater action);
 
-/*        public UserStatus UpdateUserActivationStatus(Action action);*/
+        public void AddUserToUserStatus(Guid UserId);
+
         public void DeleteClub(ActionUpdater action);
         public void DeleteUser(ActionUpdater action);
         public Guid AddNewUser(User newUser);

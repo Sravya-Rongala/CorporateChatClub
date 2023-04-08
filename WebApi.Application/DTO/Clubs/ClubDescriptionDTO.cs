@@ -1,13 +1,13 @@
 ﻿namespace WebApi.Application.DTO.Clubs
 {
-    public class ClubDescription
+    public class ClubDescriptionDTO
     {
         public string? ClubName { get; set; }
         public string? Description { get; set; }
 
         public int ClubType { get; set; }
 
-        public Guid ClubCreatedBy { get; set; }
+        public string? ClubCreatedBy { get; set; }
 
         public DateTime ClubCreatedOn { get; set; }
 
